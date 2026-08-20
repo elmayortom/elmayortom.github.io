@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap');
 
 :root {
   --bg: #FFFFFF;
@@ -22,7 +22,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   font-size: 18px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -392,4 +392,147 @@ a { color: inherit; text-decoration: none; }
   .phone-frame { width: min(78vw, 320px); }
   .site-header nav { gap: 14px; }
   .writing-item { flex-direction: column; gap: 4px; }
+  .case-mosaic { grid-template-columns: 1fr; }
+  .case-mosaic .main { grid-row: auto; }
+}
+
+/* ---- Long-form case blocks (home page) ---- */
+
+.case {
+  padding: 44px 0;
+  border-bottom: 1px solid var(--border);
+}
+.case:last-of-type {
+  border-bottom: none;
+}
+.case-meta {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-gold);
+  margin-bottom: 8px;
+}
+.case-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  line-height: 1.25;
+}
+.case-body p {
+  font-size: 16px;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+  max-width: 62ch;
+}
+.case-link {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  margin-top: 4px;
+}
+.case-link:hover {
+  color: var(--accent-gold);
+}
+
+/* Click-to-play video embed: loads nothing heavy until clicked */
+.video-embed {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--ink);
+  cursor: pointer;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 16px;
+  border: none;
+  padding: 0;
+  display: block;
+  width: 100%;
+}
+.video-embed img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.82;
+}
+.video-embed video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.video-embed .play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--ink);
+  pointer-events: none;
+}
+
+/* Vertical video embed inside the phone frame */
+.phone-frame .video-embed {
+  position: absolute;
+  inset: 0;
+  border-radius: 0;
+  aspect-ratio: auto;
+  margin-bottom: 0;
+}
+
+/* Mosaic layout for photo-only cases */
+.case-mosaic {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.case-mosaic .main {
+  grid-row: span 2;
+  aspect-ratio: 4 / 3;
+}
+.case-mosaic .side {
+  aspect-ratio: 1 / 1;
+}
+.case-mosaic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+}
+
+/* Editorial quote treatment for text-only cases */
+.case-quote {
+  font-size: 17px;
+  font-style: italic;
+  color: var(--ink-soft);
+  border-left: 3px solid var(--accent-teal);
+  padding-left: 18px;
+  margin: 0 0 14px;
+  line-height: 1.7;
+  max-width: 58ch;
+}
+
+/* Writing entry — distinct, text-forward treatment */
+.case-writing-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-teal);
+  margin-bottom: 8px;
 }

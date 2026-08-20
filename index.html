@@ -21,19 +21,16 @@
 
 <div class="wrap">
 
+  <!-- ABOUT: intro text left, video right -->
   <section class="hero" id="about">
     <div>
       <div class="role">Storyteller · Content Creator</div>
       <h1>Alejandro Zamora</h1>
-      <p class="bio">
-        ¡Hola! My name is Alejandro, a Mexican storyteller based in Germany. 
-        I like telling stories in various formats, shapes and flavors. I believe stories are to be found everywhere; one just needs to find the right angle ;)
-        It all started more than 10 years ago. I have a background in journalism. 
-        I published my first features article in 2013 and took pictures for the first time at a music festival in 2015. They were not that great, but I’ve got better. I swear. 
-        Ever since I’ve worked as a content creator in the automotive industry, the gaming sector and creative agencies. 
-        In 2018 I was awarded the National Sci-Fi & Fantasy Short Prize in my home country. 
-        I am fluent in English, Spanish, German and French. 
-      </p>
+      <p class="bio">¡Hola! My name is Alejandro, a Mexican storyteller based in Germany.</p>
+      <p class="bio">I like telling stories in various formats, shapes and flavors. I believe stories are to be found everywhere; one just needs to find the right angle ;)</p>
+      <p class="bio">It all started more than 10 years ago. I have a background in journalism. I published my first features article in 2013 and took pictures for the first time at a music festival in 2015. They were not that great, but I've got better. I swear.</p>
+      <p class="bio">Ever since I've worked as a content creator in the automotive industry, the gaming sector and creative agencies.</p>
+      <p class="bio">In 2018 I was awarded the National Sci-Fi &amp; Fantasy Short Prize in my home country. I am fluent in English, Spanish, German and French.</p>
       <div class="stamps">
         <span class="stamp award">National SciFi &amp; Fantasy Award · MX 2018</span>
         <span class="stamp">Español</span>
@@ -46,10 +43,14 @@
     <div>
       <div class="phone-frame">
         <!--
-          Replace "videos/intro.mp4" with the path to your own video file
-          once you upload it to the repository (see the "videos" folder).
+          Click-to-play: nothing heavy loads until the visitor clicks.
+          Replace poster-intro.jpg with a still frame from your video,
+          and videos/intro.mp4 with your own file.
         -->
-        <video src="videos/intro.mp4" controls playsinline muted></video>
+        <div class="video-embed" data-video="videos/intro.mp4">
+          <img src="https://placehold.co/220x390?text=Tap+to+play" loading="lazy" alt="Intro video preview">
+          <span class="play-btn">▶</span>
+        </div>
       </div>
       <div class="phone-caption">Intro video</div>
     </div>
@@ -57,70 +58,86 @@
 
   <div class="section-label" id="work">Selected work</div>
 
-  <div class="project-grid">
+  <!-- CASE 1: Toward the horizon — photo + video -->
+  <article class="case">
+    <div class="case-meta">Magis Magazine · Cover, 2020 · Photo + video</div>
+    <h2 class="case-title">Toward the horizon</h2>
+    <div class="video-embed" data-video="videos/horizon.mp4">
+      <img src="https://placehold.co/900x506?text=Toward+the+Horizon" loading="lazy" alt="Toward the horizon video preview">
+      <span class="play-btn">▶</span>
+    </div>
+    <div class="case-body">
+      <p>I met Karl Bushby, a renowned adventurer on the longest unbroken walk in history, by chance — and decided, on my own initiative, to interview him.</p>
+      <p>I wrote the article and pitched it to Magis Magazine, who ended up making it their cover story in 2020.</p>
+    </div>
+    <a class="case-link" href="project-toward-the-horizon.html">View full case →</a>
+  </article>
 
-    <a class="project-card" href="project-toward-the-horizon.html">
-      <!-- Replace with your own image, e.g. images/toward-thumb.jpg -->
-      <img class="project-thumb" src="images/magis_1_thumb.png">
-      <div class="card-body">
-        <div class="dateline">Magis Magazine · Cover, 2020</div>
-        <h3>Toward the horizon</h3>
-        <p>I met Karl Bushby, a renowned adventurer on the longest unbroken walk in history, by chance — and pitched the interview myself.</p>
-        <div class="read">Read story →</div>
-      </div>
-    </a>
+  <!-- CASE 2: Doormats — photo + video -->
+  <article class="case">
+    <div class="case-meta">Recurring series · Social media · Photo + video</div>
+    <h2 class="case-title">A collection of doormats in German speaking countries</h2>
+    <div class="video-embed" data-video="videos/doormats.mp4">
+      <img src="https://placehold.co/900x506?text=Doormats+Series" loading="lazy" alt="Doormats video preview">
+      <span class="play-btn">▶</span>
+    </div>
+    <div class="case-body">
+      <p>I noticed that door-to-door fundraisers often come across curious doormats during their daily rounds, and turned it into a recurring social media series — closing out each Instagram carousel with a photo the team sent in.</p>
+      <p>It's since become part of our brand identity.</p>
+    </div>
+    <a class="case-link" href="project-doormats.html">View full case →</a>
+  </article>
 
-    <a class="project-card" href="project-doormats.html">
-      <img class="project-thumb" src="https://placehold.co/500x300?text=Doormats+Series" alt="Doormats series thumbnail">
-      <div class="card-body">
-        <div class="dateline">Recurring series · Social media</div>
-        <h3>A collection of doormats in German speaking countries</h3>
-        <p>A curious detail from door-to-door fundraisers' daily rounds, turned into a series that's now part of our brand identity.</p>
-        <div class="read">Read story →</div>
-      </div>
-    </a>
+  <!-- CASE 3: Audi Q5 — photo only, mosaic -->
+  <article class="case">
+    <div class="case-meta">Audi · Printed calendar · Photo only</div>
+    <h2 class="case-title">Audi Q5 calendar</h2>
+    <div class="case-mosaic">
+      <img class="main" src="https://placehold.co/700x525?text=Audi+Q5" loading="lazy" alt="Audi Q5 calendar — main image">
+      <img class="side" src="https://placehold.co/400x400?text=Q5+2" loading="lazy" alt="Audi Q5 calendar — image 2">
+      <img class="side" src="https://placehold.co/400x400?text=Q5+3" loading="lazy" alt="Audi Q5 calendar — image 3">
+    </div>
+    <div class="case-body">
+      <p>I developed the concept, scouted the locations where the photos were taken, and shaped the calendar as a visual story in its own right — tracing the Audi Q5's journey through iconic Mexican locations to celebrate the vehicle's connection to Mexican heritage and strengthen the brand's bond with the local audience.</p>
+      <p>The calendar was printed in a run of 10,000 copies.</p>
+    </div>
+    <a class="case-link" href="project-audi-q5.html">View full case →</a>
+  </article>
 
-    <a class="project-card" href="project-audi-q5.html">
-      <img class="project-thumb" src="https://placehold.co/500x300?text=Audi+Q5+Calendar" alt="Audi Q5 calendar thumbnail">
-      <div class="card-body">
-        <div class="dateline">Audi · Printed calendar</div>
-        <h3>Audi Q5 calendar</h3>
-        <p>Concept, location scouting and visual direction for a calendar tracing the Q5's journey through Mexican heritage. Printed run of 10,000.</p>
-        <div class="read">Read story →</div>
-      </div>
-    </a>
+  <!-- CASE 4: Travian — text only, editorial quote -->
+  <article class="case">
+    <div class="case-meta">Travian: Legends · Community strategy · Text only</div>
+    <h2 class="case-title">Reviving a community</h2>
+    <p class="case-quote">The challenge: keeping Travian: Legends, a 15-year-old game, feeling fresh.</p>
+    <div class="case-body">
+      <p>I tested new content formats the community had never seen before — YouTube Shorts, memes, dedicated events — tracking KPIs along the way to see what actually landed. Engagement went up 3%.</p>
+    </div>
+    <a class="case-link" href="project-travian.html">View full case →</a>
+  </article>
 
-    <a class="project-card" href="project-travian.html">
-      <img class="project-thumb" src="https://placehold.co/500x300?text=Travian%3A+Legends" alt="Travian Legends thumbnail">
-      <div class="card-body">
-        <div class="dateline">Travian: Legends · Community</div>
-        <h3>Reviving a community</h3>
-        <p>New content formats to keep a 15-year-old game feeling fresh: shorts, memes, dedicated events — engagement up 3%.</p>
-        <div class="read">Read story →</div>
-      </div>
-    </a>
+  <!-- CASE 5: Antalya — photo + video + social -->
+  <article class="case">
+    <div class="case-meta">Temmel Fundraising · Antalya, Türkiye · Photo + video</div>
+    <h2 class="case-title">Travel seminar in Antalya</h2>
+    <div class="video-embed" data-video="videos/antalya.mp4">
+      <img src="https://placehold.co/900x506?text=Antalya%2C+T%C3%BCrkiye" loading="lazy" alt="Antalya video preview">
+      <span class="play-btn">▶</span>
+    </div>
+    <div class="case-body">
+      <p>Accompanied the Temmel Fundraising team on their travel seminar in Antalya, Türkiye, in December 2025, covering the on-site training sessions through photo, video and social media content.</p>
+    </div>
+    <a class="case-link" href="project-antalya.html">View full case →</a>
+  </article>
 
-    <a class="project-card" href="project-antalya.html">
-      <img class="project-thumb" src="https://placehold.co/500x300?text=Antalya%2C+T%C3%BCrkiye" alt="Antalya travel seminar thumbnail">
-      <div class="card-body">
-        <div class="dateline">Temmel Fundraising · Antalya, Türkiye</div>
-        <h3>Travel seminar in Antalya</h3>
-        <p>Photo, video and social coverage of the Temmel Fundraising team's travel seminar in Antalya, December 2025.</p>
-        <div class="read">Read story →</div>
-      </div>
-    </a>
-
-    <a class="project-card" href="writing.html">
-      <img class="project-thumb" src="https://placehold.co/500x300?text=Writing" alt="Writing thumbnail">
-      <div class="card-body">
-        <div class="dateline">Fiction · Journalism · Essays</div>
-        <h3>Writing</h3>
-        <p>A running list of my published writing — award-winning fiction, journalism and personal essays.</p>
-        <div class="read">Browse writing →</div>
-      </div>
-    </a>
-
-  </div>
+  <!-- CASE 6: Writing — different facet, not a client project -->
+  <article class="case" id="writing">
+    <div class="case-writing-label">Also — I write</div>
+    <h2 class="case-title">Writing</h2>
+    <div class="case-body">
+      <p>Award-winning fiction, journalism and personal essays, in Spanish, English and German.</p>
+    </div>
+    <a class="case-link" href="writing.html">Browse writing →</a>
+  </article>
 
 </div>
 
@@ -135,6 +152,16 @@
     </span>
   </div>
 </footer>
+
+<script>
+  // Click-to-play: only load the real video file once the visitor clicks.
+  document.querySelectorAll('.video-embed').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var src = el.getAttribute('data-video');
+      el.innerHTML = '<video src="' + src + '" controls autoplay playsinline></video>';
+    });
+  });
+</script>
 
 </body>
 </html>
