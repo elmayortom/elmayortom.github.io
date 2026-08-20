@@ -11,7 +11,7 @@
   --accent-teal: #2B5E55;
   --border: rgba(33, 29, 23, 0.14);
   --border-strong: rgba(33, 29, 23, 0.28);
-  --max: 1040px;
+  --max: 1140px;
 }
 
 * { box-sizing: border-box; }
@@ -23,7 +23,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: 'Quicksand', sans-serif;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -52,10 +52,9 @@ a { color: inherit; text-decoration: none; }
   padding-bottom: 12px;
 }
 .site-header .name {
-  font-weight: 500;
+  font-weight: 700;
   font-size: 20px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 .site-header nav {
   display: flex;
@@ -79,7 +78,7 @@ a { color: inherit; text-decoration: none; }
 }
 .hero h1 {
   font-weight: 700;
-  font-size: 38px;
+  font-size: 44px;
   line-height: 1.15;
   margin: 0 0 6px;
 }
@@ -126,8 +125,8 @@ a { color: inherit; text-decoration: none; }
 
 /* Phone frame */
 .phone-frame {
-  width: 200px;
-  height: 400px;
+  width: 230px;
+  aspect-ratio: 9 / 16;
   border: 6px solid var(--ink);
   border-radius: 26px;
   position: relative;
@@ -390,7 +389,7 @@ a { color: inherit; text-decoration: none; }
     grid-template-columns: 1fr;
     padding-top: 24px;
   }
-  .phone-frame { width: 170px; height: 340px; }
+  .phone-frame { width: min(78vw, 320px); }
   .site-header nav { gap: 14px; }
   .writing-item { flex-direction: column; gap: 4px; }
 }
