@@ -125,9 +125,10 @@ a { color: inherit; text-decoration: none; }
   color: var(--accent-teal);
 }
 
-/* Phone frame */
+/* Phone frame - make phone frame fluid */
 .phone-frame {
-  width: 400px;
+  width: 100%;
+  max-width: 400px; /* keeps the desktop design */
   aspect-ratio: 9 / 16;
   border: 6px solid var(--ink);
   border-radius: 26px;
@@ -561,4 +562,35 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.05em;
   color: var(--accent-teal);
   margin-bottom: 8px;
+}
+
+/* put this media query AFTER the .case and .case-media-grid rules (i.e. at the end of the file) */
+@media (max-width: 640px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 24px;
+  }
+  .phone-frame {
+    width: min(78vw, 320px);
+  }
+  .site-header nav { gap: 14px; }
+  .writing-item { flex-direction: column; gap: 4px; }
+
+  /* ensure the case media grid collapses to a single column on small screens */
+  .case-media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* small tweaks so media items fill the column */
+  .case-media-left,
+  .case-media-right {
+    justify-content: stretch;
+  }
+  .case-media-right img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  .case-mosaic { grid-template-columns: 1fr; }
+  .case-mosaic .main { grid-row: auto; }
 }
