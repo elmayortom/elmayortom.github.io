@@ -422,6 +422,7 @@ a { color: inherit; text-decoration: none; }
   font-weight: 700;
   margin: 0 0 16px;
   line-height: 1.25;
+  text-transform: uppercase;
 }
 .case-body p {
   font-size: 16px;
