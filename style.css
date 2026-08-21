@@ -313,10 +313,15 @@ a { color: inherit; text-decoration: none; }
   margin: 4px 0 24px;
 }
 .media-video {
-  aspect-ratio: 16/9;
-  background: var(--ink);
+  background: var(--bg-alt);
   border-radius: 10px;
   overflow: hidden;
+}
+.media-video img,
+.media-image {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 .media-video iframe { width: 100%; height: 100%; border: none; }
 
