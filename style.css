@@ -282,6 +282,7 @@ a { color: inherit; text-decoration: none; }
   font-size: 34px;
   line-height: 1.2;
   margin: 0 0 12px;
+  text-transform: uppercase;
 }
 .meta-row {
   display: flex;
