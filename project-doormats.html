@@ -36,8 +36,8 @@
   <div class="article-content">
 
     <div class="article-body">
-      <p>Door-to-door fundraisers spend their days walking from house to house, and along the way, they run into all kinds of doormats — funny, weird, occasionally judgmental. I started collecting the photos as a way to show the personality of the neighborhoods the team visited.</p>
-      <p>What began as a one-off joke turned into a recurring social media series, closing out each Instagram carousel with a photo the team sent in from the field. It's since become part of the brand's informal voice and helped humanize the work.</p>
+      <p>Door-to-door fundraisers spend their days walking from house to house, and along the way, they run into all kinds of doormats — funny, weird, occasionally judgmental. I started collecti[...]
+      <p>What began as a one-off joke turned into a recurring social media series, closing out each Instagram carousel with a photo the team sent in from the field. It's since become part of the b[...]
       <p>It's a small, unexpected way to show what that work actually looks like, one welcome mat at a time.</p>
       <p>check out <a href="https://www.instagram.com/temmelfundraising" target="_blank" class="feature-link">@temmelfundraising</a> on Instagram to see the full collection.</p>
     </div>
@@ -71,7 +71,16 @@
 
 </div>
 
-
+<script>
+  // Click-to-play: only load the real video file once the visitor clicks.
+  // Logic copied from index.html to ensure consistent behavior across pages.
+  document.querySelectorAll('.video-embed').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var src = el.getAttribute('data-video');
+      el.innerHTML = '<video src="' + src + '" controls autoplay playsinline></video>';
+    });
+  });
+</script>
 
 </body>
 </html>
