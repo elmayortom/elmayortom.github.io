@@ -36,6 +36,12 @@ a { color: inherit; text-decoration: none; }
   padding: 0 20px;
 }
 
+a.feature-link {
+  font-weight: bold;
+  color: #0066cc; /* or your preferred color */
+  text-decoration: underline;
+}
+
 /* Header */
 .site-header {
   border-bottom: 1px solid var(--border);
