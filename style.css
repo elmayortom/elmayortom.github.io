@@ -450,13 +450,24 @@ a { color: inherit; text-decoration: none; }
 }
 .case-media-right {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 .case-media-right img {
   width: 100%;
   height: auto;
   border-radius: 8px;
   display: block;
+}
+.magis-caption {
+  text-align: center;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 8px;
 }
 
 /* Click-to-play video embed: loads nothing heavy until clicked */
