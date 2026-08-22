@@ -335,20 +335,19 @@ a { color: inherit; text-decoration: none; }
 }
 .media-vertical-video iframe { width: 100%; height: 100%; border: none; }
 
+/* 3 equal responsive columns, images keep 4:5 ratio */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
-  padding-bottom: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  align-items: start;
 }
+
 .gallery img {
   width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  border-radius: 8px;
+  aspect-ratio: 4 / 5;  /* preserves 1080x1350 ratio */
+  object-fit: cover;     /* fills each cell, cropping if needed */
   display: block;
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
 }
 
 .article-nav {
