@@ -36,14 +36,6 @@ a { color: inherit; text-decoration: none; }
   padding: 0 20px;
 }
 
-a.feature-link {
-  font-weight: bold;
-  color: var(--ink-soft);
-}
-
-a.feature-link {:hover { color: var(--ink); 
-}
-
 /* Header */
 .site-header {
   border-bottom: 1px solid var(--border);
