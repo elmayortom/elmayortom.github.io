@@ -71,5 +71,40 @@
 
 </div>
 
+  document.addEventListener('click', function (e) {
+  const embed = e.target.closest('.video-embed');
+  if (!embed) return;
+
+  const videoSrc = embed.dataset.video;
+  if (!videoSrc) return;
+
+  // Prevent creating the video more than once
+  if (embed.dataset.loaded === 'true') return;
+  embed.dataset.loaded = 'true';
+
+  // Create the video element
+  const video = document.createElement('video');
+  video.controls = true;
+  video.autoplay = true;
+  video.playsInline = true;
+  video.src = videoSrc;
+  video.style.width = '100%';
+  video.style.height = 'auto';
+
+  // If there is an img preview, use it as poster
+  const img = embed.querySelector('img');
+  if (img && img.src) video.poster = img.src;
+
+  // Replace placeholder content with the video
+  embed.innerHTML = '';
+  embed.appendChild(video);
+
+  // Try to play (catch policy errors)
+  video.play().catch(function (err) {
+    // If autoplay is blocked, the user has to press play on the native controls
+    console.debug('Video play prevented:', err);
+  });
+});
+
 </body>
 </html>
