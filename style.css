@@ -38,8 +38,10 @@ a { color: inherit; text-decoration: none; }
 
 a.feature-link {
   font-weight: bold;
-  color: #0066cc; /* or your preferred color */
-  text-decoration: underline;
+  color: var(--ink-soft);
+}
+
+a.feature-link {:hover { color: var(--ink); 
 }
 
 /* Header */
