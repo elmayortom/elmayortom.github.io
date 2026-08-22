@@ -393,19 +393,6 @@ a { color: inherit; text-decoration: none; }
   white-space: nowrap;
 }
 
-@media (max-width: 640px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding-top: 24px;
-  }
-  .phone-frame { width: min(78vw, 320px); }
-  .site-header nav { gap: 14px; }
-  .writing-item { flex-direction: column; gap: 4px; }
-  .case-mosaic { grid-template-columns: 1fr; }
-  .case-mosaic .main { grid-row: auto; }
-  .case-media-grid { grid-template-columns: 1fr; }
-}
-
 /* ---- Long-form case blocks (home page) ---- */
 
 .case {
@@ -571,37 +558,10 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 8px;
 }
 
-/* put this media query AFTER the .case and .case-media-grid rules (i.e. at the end of the file) */
-@media (max-width: 640px) {
-  .hero {
-    grid-template-columns: 1fr;
-    padding-top: 24px;
-  }
-  .phone-frame {
-    width: min(78vw, 320px);
-  }
-  .site-header nav { gap: 14px; }
-  .writing-item { flex-direction: column; gap: 4px; }
-
-  /* ensure the case media grid collapses to a single column on small screens */
-  .case-media-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* small tweaks so media items fill the column */
-  .case-media-left,
-  .case-media-right {
-    justify-content: stretch;
-  }
-  .case-media-right img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
-  .case-mosaic { grid-template-columns: 1fr; }
-
-  /* Doormats swipe gallery */
-.doormats-gallery { margin-bottom: 16px; }
+/* Doormats swipe gallery - now outside media queries */
+.doormats-gallery {
+  margin-bottom: 16px;
+}
 
 .carousel {
   position: relative;
@@ -633,10 +593,6 @@ a { color: inherit; text-decoration: none; }
   justify-content: center;
   background: transparent;
   border-radius: 8px;
-}
-
-@media (min-width: 900px) {
-  .carousel-slide { flex: 0 0 420px; }
 }
 
 .carousel-slide img {
@@ -705,5 +661,41 @@ a { color: inherit; text-decoration: none; }
   background: rgba(33,29,23,0.12);
   border-radius: 999px;
 }
+
+/* Desktop breakpoint: wider carousel slides */
+@media (min-width: 900px) {
+  .carousel-slide {
+    flex: 0 0 420px;
+  }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 640px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 24px;
+  }
+  .phone-frame {
+    width: min(78vw, 320px);
+  }
+  .site-header nav { gap: 14px; }
+  .writing-item { flex-direction: column; gap: 4px; }
+
+  /* ensure the case media grid collapses to a single column on small screens */
+  .case-media-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* small tweaks so media items fill the column */
+  .case-media-left,
+  .case-media-right {
+    justify-content: stretch;
+  }
+  .case-media-right img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  .case-mosaic { grid-template-columns: 1fr; }
   .case-mosaic .main { grid-row: auto; }
 }
