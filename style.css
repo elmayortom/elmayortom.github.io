@@ -605,6 +605,42 @@ a { color: inherit; text-decoration: none; }
   background: #FFFFFF00; /* or var(--bg-alt) to match surrounding */
 }
 
+/* Page-specific: Audi Q5 — make text and image 1:1 */
+.q5-article .article-content {
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* Each column takes half the available space, with safe minimums */
+.q5-article .article-body {
+  flex: 1 1 50%;
+  min-width: 260px;
+}
+
+.q5-article .article-phone {
+  flex: 1 1 50%;
+  min-width: 260px;
+  width: auto; /* override fixed 340px in the global rule */
+}
+
+/* Ensure the image fills its column */
+.q5-article .article-phone img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Keep the existing mobile stacking behaviour */
+@media (max-width: 720px) {
+  .q5-article .article-content {
+    flex-direction: column;
+  }
+  .q5-article .article-phone {
+    width: 100%;
+    flex: 0 0 auto;
+  }
+}
 
 /* Editorial quote treatment for text-only cases */
 .case-quote {
