@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <!-- NEW: article-content holds the text + phone image side-by-side -->
+  <!-- article-content: text on the left, plain image on the right -->
   <div class="article-content">
     <div class="article-body">
       <p>
@@ -48,14 +48,12 @@
     </div>
 
     <div class="article-phone">
-      <div class="phone-frame">
-        <!-- calendar image to the right of the text on wide screens -->
-        <img src="images/q5_calendar.png" alt="audi q5 printed calendar" loading="lazy">
-      </div>
-      <div class="phone-caption">Printed calendar — Audi Q5</div>
+      <!-- Plain image (no phone-frame) placed to the right on wide screens, stacks on mobile -->
+      <img src="images/q5_calendar.png" alt="Audi Q5 printed calendar" loading="lazy" style="width:100%; border-radius:8px; display:block;">
+      <div class="phone-caption" style="margin-top:8px;">Printed calendar — Audi Q5</div>
     </div>
   </div>
-  <!-- END article-content -->
+  <!-- end article-content -->
 
   <div class="map-embed"> 
     <iframe src="https://www.google.com/maps/d/embed?mid=1N2GcLize2xuVQLnn1Eesh1h6NT7Hsxg&ehbc=2E312F" allowfullscreen loading="lazy"></iframe> 
@@ -67,7 +65,6 @@
     <img src="images/q5_calendar_subpage_5.jpg" alt="audi q5 printed calendar — image 2">
     <img src="images/q5_calendar_subpage_6.jpg" alt="audi q5 printed calendar — image 3">
   </div>
-  
   
   <div class="gallery-bushby">
     <!-- Replace each src with your real images, e.g. images/toward-01.jpg -->
