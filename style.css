@@ -559,7 +559,7 @@ a { color: inherit; text-decoration: none; }
   background: #FFFFFF00;
 }
 
-/* Mosaic layout for photo-only cases */
+/* Mosaic layout for Audi */
 .case-mosaic-audi {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -567,7 +567,7 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 16px;
 }
 .case-mosaic-audi .main {
-  grid-row: span 2;
+  grid-row: span 1;
   aspect-ratio: 4 / 3;
 }
 .case-mosaic-audi .side {
