@@ -581,6 +581,21 @@ a { color: inherit; text-decoration: none; }
   display: block;
   background: #FFFFFF00;
 }
+.case-mosaic-audi .main img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.case-mosaic-audi .side img {
+  object-fit: contain; /* preserves whole image, no crop */
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #FFFFFF00; /* or var(--bg-alt) to match surrounding */
+}
+
 
 /* Editorial quote treatment for text-only cases */
 .case-quote {
