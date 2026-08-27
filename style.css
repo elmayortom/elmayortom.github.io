@@ -560,6 +560,16 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* Mosaic layout for Audi */
+ .map-embed { 
+   border-radius: 10px;
+   overflow: hidden; 
+   margin-bottom: 24px; 
+   aspect-ratio: 16 / 10; border: 1px solid var(--border); 
+ } 
+.map-embed iframe { 
+  width: 100%; height: 100%; border: none; 
+}
+
 .case-mosaic-audi {
   display: grid;
   grid-template-columns: 2fr 1fr;
