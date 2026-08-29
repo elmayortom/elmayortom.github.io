@@ -680,6 +680,10 @@ a { color: inherit; text-decoration: none; }
   display: block;
 }
 
+.audi-gallery .carousel-slide img {
+  aspect-ratio: 3 / 2;
+}
+
 .carousel-track {
   display: flex;
   gap: 12px;
