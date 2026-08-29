@@ -852,9 +852,9 @@ a { color: inherit; text-decoration: none; }
 /* ---------- Q5-only override: keeps other pages untouched ---------- */
 .q5-article .article-content {
   display: grid;
-  grid-template-columns: 1.3fr 1fr;
+  grid-template-columns: 1fr 1.3fr;
   gap: 2rem;
-  align-items: start;
+  align-items: center;
 }
 
 .q5-article .article-phone {
