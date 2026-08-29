@@ -848,3 +848,29 @@ a { color: inherit; text-decoration: none; }
     flex: 0 0 auto;
   }
 }
+
+/* ---------- Q5-only override: keeps other pages untouched ---------- */
+.q5-article .article-content {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.q5-article .article-phone {
+  width: 100%;
+  flex: none;
+}
+
+.q5-article .article-phone img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+@media (max-width: 720px) {
+  .q5-article .article-content {
+    grid-template-columns: 1fr;
+  }
+}
