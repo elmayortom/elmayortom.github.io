@@ -44,6 +44,60 @@
     </p>
   </div>
 
+ <div class="doormats-gallery audi-gallery">
+  <div class="carousel" aria-label="Audi Q5 gallery">
+    <button class="carousel-btn prev" aria-label="Previous image" type="button">‹</button>
+
+    
+
+    <div class="carousel-track" tabindex="0" role="list">
+      <figure class="carousel-slide" role="listitem">
+        <img src="images/calendario_slide/13.jpg" alt="calendar 1" loading="lazy">
+      </figure>
+      <figure class="carousel-slide" role="listitem">
+        <img src="images/calendario_slide/12.jpg" alt="calendar 2" loading="lazy">
+      </figure>
+      <figure class="carousel-slide" role="listitem">
+        <img src="images/calendario_slide/11.jpg" alt="calendar 3" loading="lazy">
+      </figure>
+      <figure class="carousel-slide" role="listitem">
+        <img src="images/calendario_slide/10.jpg" alt="calendar 4" loading="lazy">
+      </figure>
+      <figure class="carousel-slide" role="listitem">
+        <img src="images/calendario_slide/09.jpg" alt="calendar 5" loading="lazy">
+      </figure>
+      <figure class="carousel-slide" role="listitem">
+        <img src="images/calendario_slide/08.jpg" alt="calendar 6" loading="lazy">
+      </figure>
+      <figure class="carousel-slide" role="listitem">
+        <img src="images/calendario_slide/07.jpg" alt="calendar 7" loading="lazy">
+      </figure>
+      <figure class="carousel-slide" role="listitem">
+        <img src="images/calendario_slide/06.jpg" alt="calendar 8" loading="lazy">
+      </figure>
+      <figure class="carousel-slide" role="listitem">
+        <img src="images/calendario_slide/05.jpg" alt="calendar 9" loading="lazy">
+      </figure>
+      <figure class="carousel-slide" role="listitem">
+        <img src="images/calendario_slide/04.jpg" alt="calendar 10" loading="lazy">
+      </figure>
+      <figure class="carousel-slide" role="listitem">
+        <img src="images/calendario_slide/03.jpg" alt="calendar 11" loading="lazy">
+      </figure>
+      <figure class="carousel-slide" role="listitem">
+        <img src="images/calendario_slide/02.jpg" alt="calendar 12" loading="lazy">
+      </figure>
+      <figure class="carousel-slide" role="listitem">
+        <img src="images/calendario_slide/01.jpg" alt="calendar 13" loading="lazy">
+      </figure>
+      
+    </div>
+
+    <button class="carousel-btn next" aria-label="Next image" type="button">›</button>
+
+    <div class="carousel-dots" role="tablist" aria-label="Gallery navigation"></div>
+  </div>
+  
   <div class="gallery">
     <img src="https://placehold.co/600x450?text=Travian+1" alt="Travian — image 1">
     <img src="https://placehold.co/600x450?text=Travian+2" alt="Travian — image 2">
@@ -57,5 +111,125 @@
 
 </div>
 
+ <script>
+/* Doormats gallery behavior: dots, prev/next, keyboard support */
+(function () {
+  const carousels = document.querySelectorAll('.carousel');
+  if (!carousels.length) return;
+
+  carousels.forEach((carousel) => {
+    const track = carousel.querySelector('.carousel-track');
+    const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+    const prevBtn = carousel.querySelector('.carousel-btn.prev');
+    const nextBtn = carousel.querySelector('.carousel-btn.next');
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+
+    // Create dots
+    slides.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      btn.dataset.index = i;
+      btn.addEventListener('click', () => {
+        scrollToSlide(i);
+      });
+      dotsContainer.appendChild(btn);
+    });
+
+    const dots = Array.from(dotsContainer.querySelectorAll('button'));
+
+    function scrollToSlide(index) {
+      const slide = slides[index];
+      if (!slide) return;
+      // scroll so the slide is centered in the track
+      const left = slide.offsetLeft - (track.clientWidth - slide.offsetWidth) / 2;
+      track.scrollTo({ left, behavior: 'smooth' });
+      updateActive(index);
+    }
+
+    function updateActive(index) {
+      dots.forEach((d, i) => d.setAttribute('aria-selected', i === index ? 'true' : 'false'));
+    }
+
+    // find nearest slide based on current scroll position
+    function getCurrentIndex() {
+      const trackCenter = track.scrollLeft + track.clientWidth / 2;
+      let bestIndex = 0;
+      let bestDistance = Infinity;
+      slides.forEach((s, i) => {
+        const slideCenter = s.offsetLeft + s.offsetWidth / 2;
+        const dist = Math.abs(trackCenter - slideCenter);
+        if (dist < bestDistance) {
+          bestDistance = dist;
+          bestIndex = i;
+        }
+      });
+      return bestIndex;
+    }
+
+    // update active dot during scrolling (throttle with rAF)
+    let raf = null;
+    function onScroll() {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        updateActive(getCurrentIndex());
+      });
+    }
+    track.addEventListener('scroll', onScroll, { passive: true });
+
+    // Prev / next handling
+    prevBtn && prevBtn.addEventListener('click', () => {
+      const idx = getCurrentIndex();
+      const target = Math.max(0, idx - 1);
+      scrollToSlide(target);
+    });
+    nextBtn && nextBtn.addEventListener('click', () => {
+      const idx = getCurrentIndex();
+      const target = Math.min(slides.length - 1, idx + 1);
+      scrollToSlide(target);
+    });
+
+    // keyboard left / right support when track focused
+    track.addEventListener('keydown', (ev) => {
+      if (ev.key === 'ArrowLeft') {
+        ev.preventDefault();
+        prevBtn && prevBtn.click();
+      } else if (ev.key === 'ArrowRight') {
+        ev.preventDefault();
+        nextBtn && nextBtn.click();
+      }
+    });
+
+    // enable mouse drag to scroll (desktop friendliness)
+    let isDown = false;
+    let startX, scrollStart;
+    track.addEventListener('pointerdown', (e) => {
+      isDown = true;
+      track.setPointerCapture(e.pointerId);
+      startX = e.clientX;
+      scrollStart = track.scrollLeft;
+      track.style.scrollBehavior = 'auto';
+    });
+    track.addEventListener('pointermove', (e) => {
+      if (!isDown) return;
+      const dx = e.clientX - startX;
+      track.scrollLeft = scrollStart - dx;
+    });
+    track.addEventListener('pointerup', (e) => {
+      if (!isDown) return;
+      isDown = false;
+      track.releasePointerCapture(e.pointerId);
+      track.style.scrollBehavior = '';
+      // snap to nearest slide after drag
+      scrollToSlide(getCurrentIndex());
+    });
+    track.addEventListener('pointercancel', () => { isDown = false; });
+
+    // ensure first dot is active initially
+    updateActive(0);
+  });
+})();
+</script>
+  
 </body>
 </html>
