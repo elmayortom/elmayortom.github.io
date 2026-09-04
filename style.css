@@ -886,4 +886,40 @@ a { color: inherit; text-decoration: none; }
   .q5-article .article-content {
     grid-template-columns: 1fr;
   }
+
+.mixed-media {
+  margin-bottom: 16px;
+}
+.mixed-media .wide {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 10px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+}
+.mixed-media-row {
+  display: flex;
+  gap: 10px;
+  height: 140px;
+}
+.mixed-media-row .square {
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+}
+.mixed-media-row .vertical {
+  flex: 0 0 auto;
+  aspect-ratio: 9 / 16;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
 }
