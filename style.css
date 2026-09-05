@@ -886,7 +886,7 @@ a { color: inherit; text-decoration: none; }
   .q5-article .article-content {
     grid-template-columns: 1fr;
   }
-
+}
 .mixed-media {
   margin-bottom: 16px;
 }
