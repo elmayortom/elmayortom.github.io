@@ -175,10 +175,11 @@
    <div class="case-media-grid">
       <div class="case-media-left">
         <div class="phone-frame">
-          <div class="video-embed" data-video="videos/horizon.mp4">
-            <img src="images/horizon_preview_phone.jpg" loading="lazy" alt="Toward the horizon video preview">
-            <iframe src="https://www.youtube.com/embed/RsSYiOAODgw" allowfullscreen></iframe>
-            <span class="play-btn">▶</span>
+  <div class="video-embed" data-embed-type="instagram" data-video="https://www.instagram.com/DSSth-AjaR9/embed">
+    <img src="images/horizon_preview_phone.jpg" loading="lazy" alt="Toward the horizon video preview">
+    <span class="play-btn">▶</span>
+  </div>
+</div>
           </div>
         </div>
       </div>
@@ -220,12 +221,18 @@
 
 <script>
   // Click-to-play: only load the real video file once the visitor clicks.
-  document.querySelectorAll('.video-embed').forEach(function (el) {
-    el.addEventListener('click', function () {
-      var src = el.getAttribute('data-video');
+ document.querySelectorAll('.video-embed').forEach(function (el) {
+  el.addEventListener('click', function () {
+    var src = el.getAttribute('data-video');
+    var type = el.getAttribute('data-embed-type');
+
+    if (type === 'instagram') {
+      el.innerHTML = '<iframe src="' + src + '" allowfullscreen frameborder="0" scrolling="no"></iframe>';
+    } else {
       el.innerHTML = '<video src="' + src + '" controls autoplay playsinline></video>';
-    });
+    }
   });
+});
 </script>
 
   <script>
