@@ -99,5 +99,70 @@
 
 </div>
 
+class GalleryCarousel {
+  constructor(containerSelector) {
+    this.container = document.querySelector(containerSelector);
+    if (!this.container) return;
+
+    this.track = this.container.querySelector('.carousel-track');
+    this.slides = this.container.querySelectorAll('.carousel-slide');
+    this.prevButton = this.container.querySelector('.carousel-button--prev');
+    this.nextButton = this.container.querySelector('.carousel-button--next');
+    this.indicators = this.container.querySelectorAll('.carousel-indicator');
+
+    this.currentIndex = 0;
+    this.totalSlides = this.slides.length;
+
+    this.init();
+  }
+
+  init() {
+    this.prevButton?.addEventListener('click', () => this.prev());
+    this.nextButton?.addEventListener('click', () => this.next());
+    this.indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => this.goToSlide(index));
+    });
+
+    // Optional: Keyboard navigation
+    this.container.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') this.prev();
+      if (e.key === 'ArrowRight') this.next();
+    });
+
+    this.updateCarousel();
+  }
+
+  next() {
+    this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+    this.updateCarousel();
+  }
+
+  prev() {
+    this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+    this.updateCarousel();
+  }
+
+  goToSlide(index) {
+    this.currentIndex = index;
+    this.updateCarousel();
+  }
+
+  updateCarousel() {
+    // Move track
+    const offset = -this.currentIndex * 100;
+    this.track.style.transform = `translateX(${offset}%)`;
+
+    // Update indicators
+    this.indicators.forEach((indicator, index) => {
+      indicator.classList.toggle('carousel-indicator--active', index === this.currentIndex);
+    });
+  }
+}
+
+// Initialize carousel when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+  new GalleryCarousel('.gallery-carousel');
+});
+  
 </body>
 </html>
