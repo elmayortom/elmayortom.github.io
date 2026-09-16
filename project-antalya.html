@@ -22,24 +22,34 @@
     object-fit: contain;
   }
     
-    /* Instagram Reels */
-  .instagram-reels {
-    align-items: flex-start;
-  }
+   /* Instagram Reels */
+.travian-videos.instagram-reels {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+  margin: 28px 0;
+}
 
-  .instagram-frame {
-    flex: 1 1 300px;
-    aspect-ratio: auto;
-    min-height: 540px;
-    background: transparent;
-    overflow: visible;
-  }
+.travian-videos.instagram-reels .instagram-frame {
+  flex: 0 1 400px;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  aspect-ratio: auto;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+}
 
-  .instagram-frame .instagram-media {
-    width: 100% !important;
-    min-width: 0 !important;
-    margin: 0 auto !important;
-  }
+.travian-videos.instagram-reels .instagram-media {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 540px !important;
+  margin: 0 auto !important;
+}
 </style>
 </head>
 <body>
@@ -148,25 +158,6 @@
 
 <script async src="https://www.instagram.com/embed.js"></script>
    
-  <div class="media-block">
-    <!-- Replace with the project video. YouTube: https://www.youtube.com/embed/YOUR_VIDEO_ID -->
-    <div class="media-video">
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <div class="gallery">
-    <img src="https://placehold.co/600x450?text=Antalya+1" alt="Travel seminar in Antalya — image 1">
-    <img src="https://placehold.co/600x450?text=Antalya+2" alt="Travel seminar in Antalya — image 2">
-    <img src="https://placehold.co/600x450?text=Antalya+3" alt="Travel seminar in Antalya — image 3">
-  </div>
-
-  <div class="article-nav">
-    <a href="project-travian.html">← Previous project</a>
-    <a href="writing.html">Writing →</a>
-  </div>
-
-</div>
 
   <script>
 /* Doormats gallery behavior: dots, prev/next, keyboard support */
