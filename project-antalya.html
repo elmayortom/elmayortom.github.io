@@ -33,10 +33,12 @@
   }
 
   .antalya-phone-videos .phone-frame {
-    flex: 0 1 320px;
-    width: 100%;
-    max-width: 320px;
-  }
+  width: min(78vw, 320px);
+  max-width: 320px;
+  aspect-ratio: 9 / 16;
+  height: auto;
+  flex: 0 0 auto;
+}
 
   .antalya-phone-videos .phone-frame video {
     display: block;
