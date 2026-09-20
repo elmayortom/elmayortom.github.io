@@ -7,20 +7,25 @@
 <link rel="stylesheet" href="style.css">
   <style>
   /* Antalya carousel only: same height, natural image proportions */
-  .doormats-gallery.audi-gallery .carousel-slide {
-    flex: 0 0 auto;
-    width: auto;
-    max-width: none;
-  }
+ .doormats-gallery.audi-gallery .carousel-slide {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
+  border-radius: 8px;
+  overflow: hidden;
+}
 
-  .doormats-gallery.audi-gallery .carousel-slide img {
-    display: block;
-    width: auto;
-    height: clamp(300px, 60vh, 500px);
-    max-width: calc(100vw - 80px);
-    aspect-ratio: auto;
-    object-fit: contain;
-  }
+.doormats-gallery.audi-gallery .carousel-slide img {
+  display: block;
+  width: auto;
+  height: clamp(300px, 60vh, 500px);
+  max-width: calc(100vw - 80px);
+  aspect-ratio: auto;
+  object-fit: contain;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+}
 
     /* Phone frames*/
  
@@ -56,7 +61,11 @@
     .antalya-phone-videos .phone-frame {
       width: min(78vw, 320px);
     }
-     }
+    
+    .doormats-gallery.audi-gallery .carousel-track {
+    padding: 0;
+  }
+}
 </style>
 </head>
 <body>
