@@ -54,6 +54,7 @@
     .antalya-phone-videos .phone-frame {
       width: min(78vw, 320px);
     }
+     }
 </style>
 </head>
 <body>
@@ -144,17 +145,31 @@
 
 <div class="antalya-phone-videos">
   <div class="phone-frame">
-    <video controls playsinline preload="metadata">
-      <source src="images/antalya_select/reel-1.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div
+      class="video-embed"
+      data-video="images/antalya_select/reel-1.mp4"
+    >
+      <img
+        src="images/seminar_preview_phone.jpg"
+        loading="lazy"
+        alt="Antalya seminar Reel 1 preview"
+      >
+      <span class="play-btn" aria-hidden="true">▶</span>
+    </div>
   </div>
 
   <div class="phone-frame">
-    <video controls playsinline preload="metadata">
-      <source src="images/antalya_select/reel-2.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div
+      class="video-embed"
+      data-video="images/antalya_select/reel-2.mp4"
+    >
+      <img
+        src="images/seminar_preview_phone.jpg"
+        loading="lazy"
+        alt="Antalya seminar Reel 2 preview"
+      >
+      <span class="play-btn" aria-hidden="true">▶</span>
+    </div>
   </div>
 </div>
    
@@ -279,6 +294,17 @@
 })();
 </script>
 
+<script>
+  // Load each video only after the visitor clicks its preview.
+  document.querySelectorAll('.video-embed').forEach(function (embed) {
+    embed.addEventListener('click', function () {
+      var videoSource = embed.getAttribute('data-video');
+
+      embed.innerHTML =
+        '<video src="' + videoSource + '" controls autoplay playsinline></video>';
+    }, { once: true });
+  });
+</script>
   
 </body>
 </html>
