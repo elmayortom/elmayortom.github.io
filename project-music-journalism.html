@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Journalism — Alejandro Zamora</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* Intro grid: text + image */
+  .mj-intro-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 28px;
+    align-items: start;
+    padding: 8px 0 32px;
+  }
+  .mj-intro-image img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    border: 1px solid var(--border);
+  }
+  @media (max-width: 640px) {
+    .mj-intro-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Concert photography carousel: each photo keeps its own natural ratio */
+  .mj-gallery .carousel-slide {
+    flex: 0 0 auto;
+    max-width: none;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mj-gallery .carousel-slide img {
+    width: auto;
+    height: 100%;
+    aspect-ratio: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+  }
+  @media (max-width: 640px) {
+    .mj-gallery .carousel-slide {
+      height: 260px;
+    }
+  }
+
+  /* Texts accordion */
+  .mj-accordion {
+    padding: 8px 0 40px;
+  }
+  .mj-item {
+    border-bottom: 1px solid var(--border);
+  }
+  .mj-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 18px 4px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .mj-trigger .mj-title {
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ink);
+  }
+  .mj-item.is-open .mj-trigger .mj-title {
+    color: var(--accent-gold);
+  }
+  .mj-trigger .chevron {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    color: var(--ink-faint);
+    transition: transform 0.2s ease;
+  }
+  .mj-item.is-open .chevron {
+    transform: rotate(180deg);
+    color: var(--accent-gold);
+  }
+  .mj-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.25s ease;
+  }
+  .mj-item.is-open .mj-panel {
+    grid-template-rows: 1fr;
+  }
+  .mj-panel-inner {
+    overflow: hidden;
+  }
+  .mj-content {
+    padding: 0 4px 24px;
+  }
+  .mj-content p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+    line-height: 1.6;
+  }
+  .mj-meta {
+    display: flex;
+    gap: 24px;
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+  .mj-meta strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="name">Alejandro Zamora</div>
+    <nav>
+      <a href="index.html#about">About</a>
+      <a href="index.html#work">Work</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="article-header">
+    <a class="back-link" href="index.html">← Back to work</a>
+    <div class="dateline">Concert photography · Album reviews · Interviews · Editorial writing</div>
+    <h1>I did it for the music</h1>
+    <div class="meta-row">
+      <span><strong>Role</strong>Reporter, concert photographer &amp; editorial writer</span>
+      <span><strong>Publication</strong>[Magazine name]</span>
+      <span><strong>Year</strong>2015</span>
+    </div>
+  </div>
+
+  <!-- Intro: text + image -->
+  <div class="mj-intro-grid">
+    <div class="article-body" style="padding: 0;">
+      <p>I got my first real job as a reporter for the biggest music magazine in Guadalajara, the city where I lived at the time. I'd been a music fan my whole life, and had spent years wishing for a chance to work on something I actually loved. This felt like exactly that — my dream job, handed to me.</p>
+      <p>I picked up my first camera at a concert. Turns out shooting a show is a brutal setting for a beginner: everything moves, the light is barely there, and flash is pretty much banned. I didn't know what I was doing. I got better.</p>
+      <p>In just 2015 alone, I went to around 100 concerts, wrote hundreds of articles, and interviewed a solid mix of international and local bands. Music journalism let me combine two of my biggest passions — telling stories, and never missing a good show.</p>
+    </div>
+    <div class="mj-intro-image">
+      <!-- Replace with a real photo of you at work, or a favorite shot from that era -->
+      <img src="https://placehold.co/900x675?text=Intro+photo" loading="lazy" alt="Alejandro at a concert, early days as a music journalist">
+    </div>
+  </div>
+
+  <div class="section-label">Concert photography</div>
+
+  <!-- Carousel: reuses the same swipeable gallery pattern used elsewhere in the site.
+       The .mj-gallery class overrides slide sizing so each photo keeps its own
+       natural aspect ratio (portrait, landscape, or square) instead of being
+       forced into a single fixed shape. -->
+  <div class="doormats-gallery mj-gallery">
+    <div class="carousel" aria-label="Concert photography gallery">
+      <button class="carousel-btn prev" aria-label="Previous image" type="button">‹</button>
+      <div class="carousel-track" tabindex="0" role="list">
+        <figure class="carousel-slide" role="listitem">
+          <img src="https://placehold.co/600x800?text=Concert+1" alt="Concert photo 1" loading="lazy">
+        </figure>
+        <figure class="carousel-slide" role="listitem">
+          <img src="https://placehold.co/900x600?text=Concert+2" alt="Concert photo 2" loading="lazy">
+        </figure>
+        <figure class="carousel-slide" role="listitem">
+          <img src="https://placehold.co/700x700?text=Concert+3" alt="Concert photo 3" loading="lazy">
+        </figure>
+        <figure class="carousel-slide" role="listitem">
+          <img src="https://placehold.co/600x850?text=Concert+4" alt="Concert photo 4" loading="lazy">
+        </figure>
+        <figure class="carousel-slide" role="listitem">
+          <img src="https://placehold.co/950x600?text=Concert+5" alt="Concert photo 5" loading="lazy">
+        </figure>
+        <figure class="carousel-slide" role="listitem">
+          <img src="https://placehold.co/650x800?text=Concert+6" alt="Concert photo 6" loading="lazy">
+        </figure>
+        <figure class="carousel-slide" role="listitem">
+          <img src="https://placehold.co/900x650?text=Concert+7" alt="Concert photo 7" loading="lazy">
+        </figure>
+        <figure class="carousel-slide" role="listitem">
+          <img src="https://placehold.co/700x750?text=Concert+8" alt="Concert photo 8" loading="lazy">
+        </figure>
+        <figure class="carousel-slide" role="listitem">
+          <img src="https://placehold.co/600x800?text=Concert+9" alt="Concert photo 9" loading="lazy">
+        </figure>
+        <figure class="carousel-slide" role="listitem">
+          <img src="https://placehold.co/900x600?text=Concert+10" alt="Concert photo 10" loading="lazy">
+        </figure>
+      </div>
+      <button class="carousel-btn next" aria-label="Next image" type="button">›</button>
+    </div>
+    <div class="carousel-dots"></div>
+  </div>
+
+  <div class="section-label">Texts</div>
+
+  <!--
+    Texts accordion. Each item follows the same structure — duplicate a
+    <div class="mj-item">...</div> block to add more. Replace the placeholder
+    title, description, and meta fields with your real pieces.
+  -->
+  <div class="mj-accordion" id="mj-accordion">
+
+    <div class="mj-item">
+      <button class="mj-trigger" type="button">
+        <span class="mj-title">[Article title 1]</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="mj-panel">
+        <div class="mj-panel-inner">
+          <div class="mj-content">
+            <p>[Short description of the piece.]</p>
+            <div class="mj-meta">
+              <span><strong>Format</strong>Album review</span>
+              <span><strong>Year</strong>—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mj-item">
+      <button class="mj-trigger" type="button">
+        <span class="mj-title">[Article title 2]</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="mj-panel">
+        <div class="mj-panel-inner">
+          <div class="mj-content">
+            <p>[Short description of the piece.]</p>
+            <div class="mj-meta">
+              <span><strong>Format</strong>Interview</span>
+              <span><strong>Year</strong>—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mj-item">
+      <button class="mj-trigger" type="button">
+        <span class="mj-title">[Article title 3]</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="mj-panel">
+        <div class="mj-panel-inner">
+          <div class="mj-content">
+            <p>[Short description of the piece.]</p>
+            <div class="mj-meta">
+              <span><strong>Format</strong>Editorial</span>
+              <span><strong>Year</strong>—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mj-item">
+      <button class="mj-trigger" type="button">
+        <span class="mj-title">[Article title 4]</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="mj-panel">
+        <div class="mj-panel-inner">
+          <div class="mj-content">
+            <p>[Short description of the piece.]</p>
+            <div class="mj-meta">
+              <span><strong>Format</strong>Album review</span>
+              <span><strong>Year</strong>—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mj-item">
+      <button class="mj-trigger" type="button">
+        <span class="mj-title">[Article title 5]</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="mj-panel">
+        <div class="mj-panel-inner">
+          <div class="mj-content">
+            <p>[Short description of the piece.]</p>
+            <div class="mj-meta">
+              <span><strong>Format</strong>Interview</span>
+              <span><strong>Year</strong>—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:10px;" id="contact">
+    <span>Alejandro Zamora</span>
+    <span>
+      <a href="mailto:your-email@example.com">Email</a> ·
+      <a href="#">Instagram</a> ·
+      <a href="#">LinkedIn</a> ·
+      <a href="#">Download CV / PDF</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+  // Carousel: prev/next, dots, keyboard, drag-to-scroll.
+  (function () {
+    var carousels = document.querySelectorAll('.carousel');
+    if (!carousels.length) return;
+    carousels.forEach(function (carousel) {
+      var track = carousel.querySelector('.carousel-track');
+      var slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+      var prevBtn = carousel.querySelector('.carousel-btn.prev');
+      var nextBtn = carousel.querySelector('.carousel-btn.next');
+      var dotsContainer = carousel.querySelector('.carousel-dots');
+
+      slides.forEach(function (_, i) {
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+        btn.dataset.index = i;
+        btn.addEventListener('click', function () {
+          scrollToSlide(i);
+        });
+        dotsContainer.appendChild(btn);
+      });
+      var dots = Array.from(dotsContainer.querySelectorAll('button'));
+
+      function scrollToSlide(index) {
+        var slide = slides[index];
+        if (!slide) return;
+        var left = slide.offsetLeft - (track.clientWidth - slide.offsetWidth) / 2;
+        track.scrollTo({ left: left, behavior: 'smooth' });
+        updateActive(index);
+      }
+      function updateActive(index) {
+        dots.forEach(function (d, i) {
+          d.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        });
+      }
+      function getCurrentIndex() {
+        var trackCenter = track.scrollLeft + track.clientWidth / 2;
+        var bestIndex = 0;
+        var bestDistance = Infinity;
+        slides.forEach(function (s, i) {
+          var slideCenter = s.offsetLeft + s.offsetWidth / 2;
+          var dist = Math.abs(trackCenter - slideCenter);
+          if (dist < bestDistance) {
+            bestDistance = dist;
+            bestIndex = i;
+          }
+        });
+        return bestIndex;
+      }
+      var raf = null;
+      track.addEventListener('scroll', function () {
+        if (raf) cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(function () {
+          updateActive(getCurrentIndex());
+        });
+      }, { passive: true });
+
+      prevBtn && prevBtn.addEventListener('click', function () {
+        scrollToSlide(Math.max(0, getCurrentIndex() - 1));
+      });
+      nextBtn && nextBtn.addEventListener('click', function () {
+        scrollToSlide(Math.min(slides.length - 1, getCurrentIndex() + 1));
+      });
+      track.addEventListener('keydown', function (ev) {
+        if (ev.key === 'ArrowLeft') { ev.preventDefault(); prevBtn && prevBtn.click(); }
+        else if (ev.key === 'ArrowRight') { ev.preventDefault(); nextBtn && nextBtn.click(); }
+      });
+
+      var isDown = false, startX, scrollStart;
+      track.addEventListener('pointerdown', function (e) {
+        isDown = true;
+        track.setPointerCapture(e.pointerId);
+        startX = e.clientX;
+        scrollStart = track.scrollLeft;
+        track.style.scrollBehavior = 'auto';
+      });
+      track.addEventListener('pointermove', function (e) {
+        if (!isDown) return;
+        track.scrollLeft = scrollStart - (e.clientX - startX);
+      });
+      track.addEventListener('pointerup', function (e) {
+        if (!isDown) return;
+        isDown = false;
+        track.releasePointerCapture(e.pointerId);
+        track.style.scrollBehavior = '';
+        scrollToSlide(getCurrentIndex());
+      });
+      track.addEventListener('pointercancel', function () { isDown = false; });
+
+      updateActive(0);
+    });
+  })();
+
+  // Accordion: only one text open at a time.
+  (function () {
+    var accordion = document.getElementById('mj-accordion');
+    if (!accordion) return;
+    var items = Array.from(accordion.querySelectorAll('.mj-item'));
+    items.forEach(function (item) {
+      var trigger = item.querySelector('.mj-trigger');
+      trigger.addEventListener('click', function () {
+        var isOpen = item.classList.contains('is-open');
+        items.forEach(function (other) { other.classList.remove('is-open'); });
+        if (!isOpen) item.classList.add('is-open');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
