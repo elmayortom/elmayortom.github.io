@@ -6,7 +6,10 @@
 <title>Writing — Alejandro Zamora</title>
 <link rel="stylesheet" href="style.css">
 <style>
- 
+ .writing-page .article-content {
+  grid-template-columns: 1.5fr 280px;  /* Adjust these ratios as needed */
+  gap: 24px;
+}
   .writing-accordion {
     padding: 8px 0 40px;
   }
@@ -133,9 +136,9 @@
     border-radius: 8px;
   }
   
-@media (max-width: 768px) {
-    .article-intro-grid {
-      grid-template-columns: 1fr;
+@media (max-width: 720px) {
+    .writing-page .article-content {
+    grid-template-columns: 1fr;
     }
 
   .wa-image {
