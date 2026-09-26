@@ -7,46 +7,25 @@
 <link rel="stylesheet" href="style.css">
 <style>
 <style>
-/* Writing page specific styles */
-.writing-page .article-content {
+.wa-intro-grid {
   display: grid;
-  grid-template-columns: 1.5fr 280px;
-  gap: 24px;
-  align-items: flex-start;
-  padding: 20px 0;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 28px;
+  align-items: start;
+  padding: 8px 0 20px;
 }
-
-.writing-page .article-body {
+.wa-intro-image img {
   width: 100%;
-  max-width: none;
-  font-size: 17px;
-  color: var(--ink-soft);
-}
-
-.writing-page .article-body p {
-  margin: 0 0 14px;
-}
-
-.writing-page .article-phone {
-  max-width: 280px;
-  width: 100%;
-}
-
-.writing-page .article-phone img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+  aspect-ratio: 1500 / 1663;
+  object-fit: cover;
   border-radius: 8px;
   display: block;
+  border: 1px solid var(--border);
 }
 
-@media (max-width: 720px) {
-  .writing-page .article-content {
+@media (max-width: 640px) {
+  .wa-intro-grid {
     grid-template-columns: 1fr;
-  }
-
-  .writing-page .article-phone {
-    max-width: none;
   }
 }
 
@@ -207,16 +186,14 @@
     </div>
   </div>
 
- <!-- article-content: text on the left, plain image on the right -->
- <div class="article-content">
-  <div class="article-body">
-    <p>I love languages. It's not a coincidence that the very first story I ever published was about Esperanto, the artificial language invented by Zamenhof in the 19th century. Ever since that feature, language has stayed at the center of my work.</p>
-    <p>In 2018, I was awarded Mexico's National Sci-Fi &amp; Fantasy Short Story Prize for a story about — you guessed it — linguistics.</p>
-    <p>This page is a compilation of that work. Some pieces are non-fiction. Some are fiction. All of it, a passion project through and through.</p>
+ <div class="wa-intro-grid">
+  <div class="wa-intro-text">
+    <p>I love languages. It's not a coincidence...</p>
+    <p>In 2018, I was awarded Mexico's National Sci-Fi &amp; Fantasy...</p>
+    <p>This page is a compilation of that work...</p>
   </div>
-
-  <div class="article-phone">
-    <img src="images/writing/confabulario_portada3.jpg" alt="Alejandro Zamora writing" loading="lazy">
+  <div class="wa-intro-image">
+    <img src="images/writing-intro.jpg" alt="..." loading="lazy">
   </div>
 </div>
 
