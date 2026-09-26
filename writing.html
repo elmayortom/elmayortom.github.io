@@ -6,60 +6,107 @@
 <title>Writing — Alejandro Zamora</title>
 <link rel="stylesheet" href="style.css">
 <style>
- .writing-page .article-content {
-  grid-template-columns: 1.5fr 280px;  /* Adjust these ratios as needed */
+/* Writing page specific styles */
+.writing-page .article-content {
+  display: grid;
+  grid-template-columns: 1.5fr 280px;
   gap: 24px;
+  align-items: flex-start;
+  width: 100%;
+  max-width: none;
 }
-  .writing-accordion {
-    padding: 8px 0 40px;
+
+.writing-page .article-body {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+
+.writing-page .article-phone {
+  width: 100%;
+  max-width: 280px;
+  flex: 0 0 280px;
+}
+
+.writing-page .article-phone img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+@media (max-width: 720px) {
+  .writing-page .article-content {
+    grid-template-columns: 1fr;
   }
-  .wa-item {
-    border-bottom: 1px solid var(--border);
+
+  .writing-page .article-phone {
+    max-width: none;
   }
-  .wa-trigger {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    width: 100%;
-    background: none;
-    border: none;
-    text-align: left;
-    padding: 18px 4px;
-    cursor: pointer;
-    font-family: inherit;
-  }
-  .wa-trigger .wa-title {
-    font-weight: 700;
-    font-size: 17px;
-    color: var(--ink);
-  }
-  .wa-item.is-open .wa-trigger .wa-title {
-    color: var(--accent-gold);
-  }
-  .wa-trigger .chevron {
-    flex: 0 0 auto;
-    width: 18px;
-    height: 18px;
-    color: var(--ink-faint);
-    transition: transform 0.2s ease;
-  }
-  .wa-item.is-open .chevron {
-    transform: rotate(180deg);
-    color: var(--accent-gold);
-  }
-  .wa-panel {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.25s ease;
-  }
-  .wa-item.is-open .wa-panel {
-    grid-template-rows: 1fr;
-  }
-  .wa-panel-inner {
-    overflow: hidden;
-  }
-  .wa-content {
+}
+
+/* Accordion styles */
+.writing-accordion {
+  padding: 8px 0 40px;
+}
+
+.wa-item {
+  border-bottom: 1px solid var(--border);
+}
+
+.wa-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 18px 4px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.wa-trigger .wa-title {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+}
+
+.wa-item.is-open .wa-trigger .wa-title {
+  color: var(--accent-gold);
+}
+
+.wa-trigger .chevron {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  color: var(--ink-faint);
+  transition: transform 0.2s ease;
+}
+
+.wa-item.is-open .chevron {
+  transform: rotate(180deg);
+  color: var(--accent-gold);
+}
+
+.wa-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
+
+.wa-item.is-open .wa-panel {
+  grid-template-rows: 1fr;
+}
+
+.wa-panel-inner {
+  overflow: hidden;
+}
+
+.wa-content {
   display: grid;
   gap: 28px;
   padding: 0 4px 24px;
@@ -82,26 +129,30 @@
   object-fit: contain;
   display: block;
 }
-  .wa-details p {
-    font-size: 18px;
-    color: var(--ink-soft);
-    margin: 0 0 12px;
-    line-height: 1.6;
-  }
-  .wa-meta {
-    display: flex;
-    gap: 24px;
-    font-size: 15px;
-    color: var(--ink-faint);
-  }
-  .wa-meta strong {
-    display: block;
-    color: var(--ink);
-    font-weight: 700;
-    font-size: 15px;
-    margin-bottom: 2px;
-  }
-  .wa-link {
+
+.wa-details p {
+  font-size: 18px;
+  color: var(--ink-soft);
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+
+.wa-meta {
+  display: flex;
+  gap: 24px;
+  font-size: 15px;
+  color: var(--ink-faint);
+}
+
+.wa-meta strong {
+  display: block;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.wa-link {
   display: inline-block;
   margin-top: 14px;
   font-size: 12px;
@@ -110,44 +161,20 @@
   letter-spacing: 0.04em;
   color: var(--ink);
 }
+
 .wa-link:hover {
   color: var(--accent-gold);
 }
-/* Article intro: text + image side by side */
-  .article-intro-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.7fr) minmax(180px, 280px);
-    gap: 24px;
-    align-items: flex-start;
-  }
 
-  .article-intro-text {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .article-intro-image {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    object-fit: contain;
-    border-radius: 8px;
-  }
-  
-@media (max-width: 720px) {
-    .writing-page .article-content {
+@media (max-width: 768px) {
+  .wa-content {
     grid-template-columns: 1fr;
-    }
+  }
 
   .wa-image {
     width: 100%;
     aspect-ratio: 16 / 10;
   }
-.article-body > div {
-      grid-template-columns: 1fr !important;
-    }
 }
 </style>
 </head>
@@ -164,7 +191,7 @@
   </div>
 </header>
 
-<div class="wrap">
+<div class="wrap writing-page">
 
   <div class="article-header">
     <a class="back-link" href="index.html">← Back to work</a>
