@@ -6,6 +6,17 @@
 <title>Writing — Alejandro Zamora</title>
 <link rel="stylesheet" href="style.css">
 <style>
+  .article-body {
+  padding: 20px 0;
+  font-size: 17px;
+  color: var(--ink-soft);
+}
+
+/* Only apply max-width to plain paragraphs, not the grid */
+.article-body > p {
+  max-width: 66ch;
+  margin: 0 0 14px;
+}
   .writing-accordion {
     padding: 8px 0 40px;
   }
