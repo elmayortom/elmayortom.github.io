@@ -6,28 +6,38 @@
 <title>Writing — Alejandro Zamora</title>
 <link rel="stylesheet" href="style.css">
 <style>
+<style>
 /* Writing page specific styles */
 .writing-page .article-content {
   display: grid;
   grid-template-columns: 1.5fr 280px;
   gap: 24px;
   align-items: flex-start;
+  padding: 20px 0;
 }
 
 .writing-page .article-body {
-  padding: 20px 0;
+  width: 100%;
+  max-width: none;
   font-size: 17px;
   color: var(--ink-soft);
 }
 
+.writing-page .article-body p {
+  margin: 0 0 14px;
+}
+
 .writing-page .article-phone {
   max-width: 280px;
+  width: 100%;
 }
+
 .writing-page .article-phone img {
   width: 100%;
   height: auto;
   object-fit: contain;
   border-radius: 8px;
+  display: block;
 }
 
 @media (max-width: 720px) {
