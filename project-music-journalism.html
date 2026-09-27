@@ -130,6 +130,23 @@
     font-size: 12px;
     margin-bottom: 2px;
   }
+  .mj-image {
+  width: 100%;
+  border-radius: 8px;
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.mj-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -235,6 +252,9 @@
       <div class="mj-panel">
         <div class="mj-panel-inner">
           <div class="mj-content">
+             <div class="mj-image">
+              <img src="images/writing/confabulario_inner_page_edit_cropV2.jpg" loading="lazy" alt="El Lingüicida">
+            </div>
             <p>[Short description of the piece.]</p>
             <div class="mj-meta">
               <span><strong>Format</strong>Album review</span>
