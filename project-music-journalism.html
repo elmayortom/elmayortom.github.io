@@ -306,9 +306,14 @@
               <span><strong>Format</strong>Editorial</span>
               <span><strong>Year</strong>—</span>
             </div>
-            <div class="mj-image">
-              <img src="images/music/esteman.jpg" loading="lazy" alt="photo concert gallery">
-            </div>
+            <div class="article-phone">
+  <div class="phone-frame">
+    <div class="video-embed" data-video="videos/music/esteman_music.mp4">
+      <img src="images/music/vertical-video-thumbnail.jpg" loading="lazy" alt="Vertical video preview">
+      <span class="play-btn">▶</span>
+    </div>
+  </div>
+</div>
           </div>
         </div>
       </div>
@@ -474,6 +479,14 @@
       });
     });
   })();
+ // Click-to-play: only load the real video file once the visitor clicks.
+  document.querySelectorAll('.video-embed').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var src = el.getAttribute('data-video');
+      el.innerHTML = '<video src="' + src + '" controls autoplay playsinline></video>';
+    });
+  });
+  
 </script>
 
 </body>
