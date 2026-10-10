@@ -385,5 +385,23 @@
 })();
 </script>
 
+  <script>
+  // Tap en la frase: abre/cierra la foto. Tap fuera: la cierra.
+  (function () {
+    var peeks = document.querySelectorAll('.peek');
+    peeks.forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var wasOpen = el.classList.contains('is-open');
+        peeks.forEach(function (p) { p.classList.remove('is-open'); });
+        if (!wasOpen) el.classList.add('is-open');
+      });
+    });
+    document.addEventListener('click', function () {
+      peeks.forEach(function (p) { p.classList.remove('is-open'); });
+    });
+  })();
+</script>
+
 </body>
 </html>
