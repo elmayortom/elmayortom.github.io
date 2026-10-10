@@ -964,8 +964,17 @@ a { color: inherit; text-decoration: none; }
   transition: opacity 0.2s ease, transform 0.2s ease;
   z-index: 20;
 }
-.peek:hover .peek-img,
-.peek:focus .peek-img {
+
+/* Mouse: aparece al pasar el cursor, desaparece al quitarlo */
+@media (hover: hover) {
+  .peek:hover .peek-img {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Touch: aparece y desaparece con toques sobre la frase */
+.peek.is-open .peek-img {
   opacity: 1;
   transform: translateY(0);
 }
