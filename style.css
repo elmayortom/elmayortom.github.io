@@ -944,3 +944,28 @@ a { color: inherit; text-decoration: none; }
   border: none;
 }
 
+.peek {
+  position: relative;
+  border-bottom: 1.5px dotted var(--accent-gold);
+  cursor: pointer;
+}
+.peek-img {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  width: 180px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 20;
+}
+.peek:hover .peek-img,
+.peek:focus .peek-img {
+  opacity: 1;
+  transform: translateY(0);
+}
